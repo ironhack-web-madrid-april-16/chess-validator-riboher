@@ -1,7 +1,7 @@
 require 'pry'
 
 module Linear_movable
-  def move_linear(origin,target_position)
+  def move_linear(target_position)
     if @origin[0] == target_position[0] || @origin[1] == target_position[1]
       @movable = true
     end
@@ -10,7 +10,7 @@ module Linear_movable
 end
 
 module Diagonal_movable
-   def move_diagonal(origin,target_position)
+   def move_diagonal(target_position)
     if @origin[0] > target_position[0] && @origin[1] < target_position[1]
       if @origin[0] - target_position[0] == @origin[1] + target_position[1]
         @movable = true
@@ -27,7 +27,7 @@ module Diagonal_movable
 end
 
 module Linear_movable_by_one
-  def move_one_linear(origin,target_position)
+  def move_one_linear(target_position)
     if @origin[0] == target_position[0]
       if target_position[1] == @origin[1] + 1 || target_position[1] == @origin[1] - 1
         @movable = true
@@ -42,7 +42,7 @@ module Linear_movable_by_one
 end
 
 module L_movement
-  def l_movable(origin,target_position)
+  def l_movable(target_position)
     if target_position[0] == @origin[0] + 1 || target_position[0] == @origin[0] - 1
       if target_position[1] == @origin[1] + 2 || target_position[1] == @origin[1] - 2
         @movable = true
@@ -54,4 +54,20 @@ module L_movement
     end
   end
   @movable
+end
+
+module Forward_one
+  def move_forward_from_bottom(target_position)
+    if target_position[0] == @origin[0] && target_position[1] < @origin[1]
+      @movable = true
+    end
+    @movable
+  end
+
+  def move_forward_from_top(target_position)
+    if target_position[0] == @origin[0] && target_position[1] > @origin[1]
+      @movable = true
+    end
+    @movable
+  end
 end
