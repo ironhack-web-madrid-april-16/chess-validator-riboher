@@ -40,3 +40,18 @@ module Linear_movable_by_one
     @movable
   end
 end
+
+module L_movement
+  def l_movable(origin,target_position)
+    if target_position[0] == @origin[0] + 1 || target_position[0] == @origin[0] - 1
+      if target_position[1] == @origin[1] + 2 || target_position[1] == @origin[1] - 2
+        @movable = true
+      end
+    elsif target_position[0] == @origin[0] + 2 || target_position[0] == @origin[0] - 2
+      if target_position[1] == @origin[1] + 1 || target_position[1] == @origin[1] - 1
+        @movable = true
+      end
+    end
+  end
+  @movable
+end
