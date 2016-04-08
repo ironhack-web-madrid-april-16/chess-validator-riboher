@@ -17,9 +17,9 @@ chessboard = [
 
 
 
-wR = Rook.new([0,0])
-wB = Bishop.new([2,0])
-wQ = Queen.new([4,7])
+wR = Rook.new([0,0],"white")
+wB = Bishop.new([2,0],"white")
+wQ = Queen.new([4,7],"white")
 #chessboard[0][0] = wR
 
 wR.check_move([5,0])

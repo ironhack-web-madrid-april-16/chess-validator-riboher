@@ -1,5 +1,7 @@
+require 'pry'
+
 module Linear_movable
-  def move_linear(target_position)
+  def move_linear(origin,target_position)
     if @origin[0] == target_position[0] || @origin[1] == target_position[1]
       @movable = true
     end
@@ -8,7 +10,7 @@ module Linear_movable
 end
 
 module Diagonal_movable
-   def move_diagonal(target_position)
+   def move_diagonal(origin,target_position)
     if @origin[0] > target_position[0] && @origin[1] < target_position[1]
       if @origin[0] - target_position[0] == @origin[1] + target_position[1]
         @movable = true
@@ -19,6 +21,15 @@ module Diagonal_movable
       if @origin[0] - target_position[0] == @origin[1] - target_position[1]
         @movable = true
       end
+    end
+    @movable
+  end
+end
+
+module Linear_movable_by_one
+  def move_one_linear(origin,target_position)
+    if @origin[0]+1 == target_position[0] || @origin[1]+1 == target_position[1]
+      @movable = true
     end
     @movable
   end

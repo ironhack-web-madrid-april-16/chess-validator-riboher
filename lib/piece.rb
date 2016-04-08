@@ -1,6 +1,7 @@
 class Piece
-  def initialize(coord_init,color)
-    @coord_init = coord_init
+  def initialize(origin,color)
+    @origin = origin
     @color = color
+    @movable = false
   end
 end
