@@ -8,7 +8,7 @@ class Rook < Piece
   end
 
   def check_move(target_position)
-    if move_linear(@origin,target_position)
+    if move_linear(target_position)
       puts "LEGAL"
     else
       puts "ILLEGAL"

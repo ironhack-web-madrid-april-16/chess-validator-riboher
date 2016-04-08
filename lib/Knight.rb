@@ -8,7 +8,7 @@ class Knight < Piece
   end
 
   def check_move(target_position)
-    if l_movable(@origin,target_position)
+    if l_movable(target_position)
       puts "LEGAL"
     else
       puts "ILLEGAL"

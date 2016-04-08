@@ -7,7 +7,7 @@ class Bishop < Piece
     super(origin,color)
   end
   def check_move(target_position)
-    if move_diagonal(@origin,target_position)
+    if move_diagonal(target_position)
       puts "LEGAL"
     else
       puts "ILLEGAL"
