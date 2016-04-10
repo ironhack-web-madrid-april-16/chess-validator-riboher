@@ -38,14 +38,17 @@ module Linear_movable_by_one
 end
 
 module L_movement
-  def l_movable(target_position)
+  def movement_l(target_position)
+    # binding.pry
     if target_position[0] == @origin[0] + 1 || target_position[0] == @origin[0] - 1
       if target_position[1] == @origin[1] + 2 || target_position[1] == @origin[1] - 2
         @movable = true
+        # binding.pry
       end
     elsif target_position[0] == @origin[0] + 2 || target_position[0] == @origin[0] - 2
       if target_position[1] == @origin[1] + 1 || target_position[1] == @origin[1] - 1
         @movable = true
+        # binding.pry
       end
     end
   end
@@ -54,14 +57,17 @@ end
 
 module Forward_one
   def move_forward_from_bottom(target_position)
-    if target_position[0] == @origin[0] && target_position[1] < @origin[1]
+    # binding.pry
+    if target_position[1] == @origin[1] && (target_position[0] == @origin[0] - 1 || target_position[0] == @origin[0] - 2)
       @movable = true
+      # binding.pry
     end
     @movable
   end
 
   def move_forward_from_top(target_position)
-    if target_position[0] == @origin[0] && target_position[1] > @origin[1]
+    # binding.pry
+    if target_position[1] == @origin[1] && (target_position[0] == @origin[0] + 1 || target_position[1] == @origin[1] + 2)
       @movable = true
     end
     @movable
