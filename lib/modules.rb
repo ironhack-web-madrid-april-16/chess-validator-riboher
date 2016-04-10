@@ -51,16 +51,14 @@ module L_movement
         # binding.pry
       end
     end
+    @movable
   end
-  @movable
 end
 
 module Forward_one
   def move_forward_from_bottom(target_position)
-    # binding.pry
     if target_position[1] == @origin[1] && (target_position[0] == @origin[0] - 1 || target_position[0] == @origin[0] - 2)
       @movable = true
-      # binding.pry
     end
     @movable
   end

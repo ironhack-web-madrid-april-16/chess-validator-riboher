@@ -10,8 +10,10 @@ class Knight < Piece
   def check_move(target_position)
     # binding.pry
     if movement_l(target_position)
+      # binding.pry
       puts "LEGAL"
     else
+      # binding.pry
       puts "ILLEGAL"
     end
   end
