@@ -1,12 +1,13 @@
 require './IOtool.rb'
-
+require 'pry'
 class Board
   def initialize
     @grid = []
   end
 
   def check_position(pos)
-    puts @grid[pos[0]][pos[1]]
+    #binding.pry
+    @grid[pos[0]][pos[1]].to_sym
   end
 
   def fill_grid(file)

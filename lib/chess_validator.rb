@@ -9,27 +9,85 @@ require './Board.rb'
 require 'pry'
 
 
+# list_of_moves = [
+#   ["0,6 0,5"],
+#   ["0,6 0,4"],
+#   ["0,6 0,3"],
+#   ["0,1 0,2"],
+#   ["0,1 0,3"],
+#   ["0,1 0,4"],
+#   ["0,1 1,2"],
+#   ["1,0 0,2"],
+#   ["1,0 2,2"],
+#   ["1,0 3,1"],
+#   ["4,6 4,5"],
+#   ["4,5 4,6"]
+# ]
+
+list_of_moves = [
+  [[6,0],[5,0]],
+  [[6,0],[4,0]],
+  [[6,0],[3,0]],
+  [[1,0],[2,0]],
+  [[1,0],[3,0]],
+  [[1,0],[4,0]],
+  [[1,0],[2,1]],
+  [[0,1],[2,0]],
+  [[0,1],[2,2]],
+  [[0,1],[1,3]],
+  [[6,4],[5,4]],
+  [[5,4],[6,4]]
+]
+
+
+
+# moves_arr = list_of_moves.map do |cut|
+#    cut.join.split(" ").each_slice(1).to_a
+# end
+
+# new_arr = moves_arr.map do |single|
+#   single.map do |subdiv|
+#     subdiv.join(",").split(",")
+#   end
+# end
+
+# new_arr.each do |cell|
+#   print cell
+# end
+
+#print list_of_moves[0][1]
+#print moves_arr
+
+#print list_of_moves[0][0]
+
 chessboard = Board.new
 chessboard.fill_grid("simple-board.txt")
-chessboard.check_position([0,2])
 
-# moves = IO.read("simple-moves.txt").split("\n")
-# chessboard = chessboard.map { |piece| piece.to_sym }
+# puts chessboard.check_position([6,0]) #wP
+# puts chessboard.check_position([1,0]) #bP
+# puts chessboard.check_position([0,1]) #bN
+# puts chessboard.check_position([6,4]) #wP
+# puts chessboard.check_position([5,4]) #--
 
 
+# Pawn.new(list_of_moves[0][0],"white").check_move(list_of_moves[0][1])
 
-# wR = Rook.new([0,0],"white")
-# wB = Bishop.new([2,0],"white")
-# wQ = Queen.new([4,7],"white")
-# wK = King.new([3,4],"white")
-# wN = Knight.new([3,4],"white")
-# wP1 = Pawn.new([0,6],"white")
-# wP2 = Pawn.new([1,6],"white")
-# wP3 = Pawn.new([2,6],"white")
-# wP4 = Pawn.new([3,6],"white")
-# wP5 = Pawn.new([4,6],"white")
-# wP6 = Pawn.new([5,6],"white")
-# wP7 = Pawn.new([6,6],"white")
-# wP8 = Pawn.new([7,6],"black")
+list_of_moves.each_with_index do |origin,index|
+  piece = chessboard.check_position(list_of_moves[index][0])
+  case piece
+  when :bN
+    # binding.pry
+    Knight.new(list_of_moves[index][0],"black").check_move(list_of_moves[index][1])
+  when :wN
+    # binding.pry
+    Knight.new(list_of_moves[index][0],"white").check_move(list_of_moves[index][1])
+  when :bP
+    # binding.pry
+    Pawn.new(list_of_moves[index][0],"black").check_move(list_of_moves[index][1])
+  when :wP
+    # binding.pry
+    Pawn.new(list_of_moves[index][0],"white").check_move(list_of_moves[index][1])
+  end
+end
 
 
